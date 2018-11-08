@@ -1,0 +1,20 @@
+{
+  "name": "tsqm",
+  "version": "1.0.0",
+  "description": "typescript desktop automation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "author": "YAN Yuchen",
+  "license": "ISC",
+  "dependencies": {
+    "robot-js": "^2.0.0",
+    "ts-json-key-map": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.1.6",
+    "@types/node": "^10.12.3"
+  }
+}
