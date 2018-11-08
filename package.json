@@ -9,6 +9,8 @@
   },
   "author": "YAN Yuchen",
   "license": "ISC",
+  "private": false,
+  "repository": "https://github.com/cirahnitex/tsqm.git",
   "dependencies": {
     "robot-js": "^2.0.0",
     "ts-json-key-map": "^1.0.0"
