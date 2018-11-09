@@ -1,6 +1,6 @@
 {
   "name": "tsqm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "typescript desktop automation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

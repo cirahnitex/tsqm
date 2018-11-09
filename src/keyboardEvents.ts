@@ -39,3 +39,12 @@ export function addKeyDownListener(key:number, callback:Callback) {
 export function addKeyUpListener(key:number, callback:Callback) {
     addCommandListener({type:"addKeyUpListener",key}, callback);
 }
+export function removeKeyDownListeners(key:number) {
+    keyDownListeners.delete({type:"addKeyDownListener",key})
+}
+export function removeKeyUpListeners(key:number) {
+    keyDownListeners.delete({type:"addKeyUpListener",key})
+}
+export function removeKeyListeners() {
+    keyDownListeners.clear();
+}
