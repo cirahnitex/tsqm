@@ -40,11 +40,13 @@ export function addKeyUpListener(key:number, callback:Callback) {
     addCommandListener({type:"addKeyUpListener",key}, callback);
 }
 export function removeKeyDownListeners(key:number) {
-    keyDownListeners.delete({type:"addKeyDownListener",key})
+    keyDownListeners.set({type:"addKeyDownListener",key},[])
 }
 export function removeKeyUpListeners(key:number) {
-    keyDownListeners.delete({type:"addKeyUpListener",key})
+    keyDownListeners.set({type:"addKeyUpListener",key},[])
 }
 export function removeKeyListeners() {
-    keyDownListeners.clear();
+    for(const key of keyDownListeners.keys()) {
+        keyDownListeners.set(key, []);
+    }
 }
