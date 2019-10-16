@@ -27,9 +27,9 @@ export class Bitmap {
     colorAt(x:number, y:number):RGB {
         const byteOffset = this.bytesPerPixel() * (this.width()*y + x);
         const buffer:Buffer = this.bitmap.image;
-        const r:number = buffer.readInt8(byteOffset);
-        const g:number = buffer.readInt8(byteOffset + 1);
-        const b:number = buffer.readInt8(byteOffset + 2);
+        const b:number = buffer.readUInt8(byteOffset);
+        const g:number = buffer.readUInt8(byteOffset + 1);
+        const r:number = buffer.readUInt8(byteOffset + 2);
         return {r, g, b};
     }
 }
