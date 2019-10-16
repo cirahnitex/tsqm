@@ -1,7 +1,7 @@
 import robot from 'robotjs';
 import {RGB} from "./RGB";
 
-class Bitmap {
+export class Bitmap {
     bitmap: robot.Bitmap;
 
     constructor(bitmap: robot.Bitmap) {
