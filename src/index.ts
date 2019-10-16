@@ -1,6 +1,13 @@
-export * from "./core";
-export * from "./keyboardEvents";
-export * from "./screen";
+import iohook from "iohook";
+import robot from "robotjs";
+iohook.start(false);
+robot.setKeyboardDelay(1);
+robot.setMouseDelay(1);
+
 export * from "./delay";
-export * from "./Image";
-export * from "./Color";
+export * from "./isKeyDown";
+export * from "./keycodes";
+export * from "./keyEvents";
+export * from "./RGB";
+export * from "./screen";
+export * from "./simulateInput";

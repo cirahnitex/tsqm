@@ -1,12 +1,12 @@
 
-export default interface Color {
-    r:number, g:number, b:number, a:number
+export interface RGB {
+    r:number, g:number, b:number
 }
 
-export function toHSB(color:Color);
+export function toHSB(color:RGB);
 export function toHSB(red:number, green:number, blue:number);
 
-export function toHSB(red:number|Color, green:number=0, blue:number=0){
+export function toHSB(red:number|RGB, green:number=0, blue:number=0){
     if(typeof(red) !== 'number') {
         return toHSB(red.r, red.g, red.b);
     }

@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2017",
     "module": "commonjs",
     "outDir": "dist",
     "sourceMap": true,
     "strictNullChecks": true,
     "declaration": true,
-    "typeRoots": ["@types","node_modules/@types"]
+    "typeRoots": ["@types","node_modules/@types"],
+    "esModuleInterop": true,
+    "lib": ["es2017"]
   },
   "include": [
     "src/**/*.ts"

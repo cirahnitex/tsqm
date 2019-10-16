@@ -1,15 +1,44 @@
-import * as robot from 'robot-js';
-import {Image} from "./Image";
+import robot from 'robotjs';
+import {RGB} from "./RGB";
 
-if(!robot.Screen.synchronize()) {
-    console.error('fail to synchronize screen');
+class Bitmap {
+    bitmap: robot.Bitmap;
+
+    constructor(bitmap: robot.Bitmap) {
+        this.bitmap = bitmap;
+    }
+
+    width():number {
+        return this.bitmap.width;
+    }
+
+    height():number {
+        return this.bitmap.height;
+    }
+
+    bytesPerPixel():number {
+        return this.bitmap.bytesPerPixel;
+    }
+
+    buffer():Buffer {
+        return this.bitmap.image;
+    }
+
+    colorAt(x:number, y:number):RGB {
+        const byteOffset = this.bytesPerPixel() * (this.width()*y + x);
+        const buffer:Buffer = this.bitmap.image;
+        const r:number = buffer.readInt8(byteOffset);
+        const g:number = buffer.readInt8(byteOffset + 1);
+        const b:number = buffer.readInt8(byteOffset + 2);
+        return {r, g, b};
+    }
 }
-export function getScreenSize() {
-    const a = robot.Screen.getTotalBounds();
-    return {width:a.w,height:a.h};
+
+export function getScreenSize():[number, number] {
+    const {width, height} = robot.getScreenSize();
+    return [width, height];
 }
-export function grabScreen(x:number, y:number, w:number, h:number):Image {
-    const output:Image = robot.Image();
-    robot.Screen.grabScreen (output, x, y, w, h);
-    return output;
+
+export function captureScreen(x:number, y:number, w:number, h:number):Bitmap {
+    return new Bitmap(robot.screen.capture(x, y, w, h));
 }
