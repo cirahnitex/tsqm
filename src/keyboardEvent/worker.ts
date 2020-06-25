@@ -1,6 +1,6 @@
-const FFI = require('ffi');
+import FFI from 'ffi';
 
-var user32 = new FFI.Library('user32', {
+const user32 = new FFI.Library('user32', {
     'GetAsyncKeyState': [
         'int32', ['int32']
     ]
@@ -16,12 +16,12 @@ resetAsyncKeyStates();
 
 const pressedKeys = new Set();
 
-function handleKeydown(keycode) {
-    process.send({type:"down", keycode})
+function handleKeydown(keycode:number) {
+    process.send!({type:"down", keycode})
 }
 
-function handleKeyup(keycode) {
-    process.send({type:"up", keycode})
+function handleKeyup(keycode:number) {
+    process.send!({type:"up", keycode})
 }
 
 setInterval(()=>{

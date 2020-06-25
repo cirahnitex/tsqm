@@ -23,7 +23,7 @@ function handleWorkerMessage(e:Message) {
 }
 function startWorker() {
     if(worker != null) return;
-    worker = fork(__dirname+"/worker.js");
+    worker = fork(__dirname+"/worker");
     worker.on("message", handleWorkerMessage);
 }
 function stopWorker() {
