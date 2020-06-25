@@ -1,5 +1,14 @@
 import robot from 'robotjs';
 import {RGB} from "./RGB";
+import ffi from "ffi";
+
+const user32 = new ffi.Library("user32", {
+    GetSystemMetrics: ["int", ["int"]],
+});
+
+const SM_CXSCREEN = 0;
+const SM_CYSCREEN = 1;
+
 
 export class Bitmap {
     bitmap: robot.Bitmap;
@@ -34,9 +43,13 @@ export class Bitmap {
     }
 }
 
+let _screensizeRet: [number, number]|null;
 export function getScreenSize():[number, number] {
-    const {width, height} = robot.getScreenSize();
-    return [width, height];
+    if(_screensizeRet) return _screensizeRet;
+    const width = user32.GetSystemMetrics(SM_CXSCREEN);
+    const height = user32.GetSystemMetrics(SM_CYSCREEN);
+    _screensizeRet = [width, height];
+    return _screensizeRet;
 }
 
 export function captureScreen(x:number, y:number, w:number, h:number):Bitmap {

@@ -1,6 +1,9 @@
-import * as QM from "./index";
-import {addKeyDownListener, addKeyUpListener} from "./hook";
-console.log(QM.captureScreen(15,9,1,2).colorAt(0,1));
-addKeyDownListener(QM.KEY_A, ()=>{
-    console.log('a');
-});
+import {captureScreen, getScreenSize} from "./screen";
+import {getMousePos} from "./mouse";
+import {keyPress} from "./keyboardInput";
+import {KEY_A} from "./keycodes";
+
+const start = Date.now();
+console.log(getScreenSize());
+const end = Date.now();
+console.log('time elapsed: ', end - start);

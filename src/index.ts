@@ -1,10 +1,7 @@
-import robot from "robotjs";
-
-robot.setKeyboardDelay(1);
-robot.setMouseDelay(1);
-
 export * from "./delay";
+export * from "./keyboardEvent";
+export * from "./keyboardInput";
 export * from "./keycodes";
+export * from "./mouse";
 export * from "./RGB";
 export * from "./screen";
-export * from "./simulateInput";
