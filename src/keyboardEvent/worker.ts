@@ -1,4 +1,4 @@
-import FFI from 'ffi';
+import FFI from 'ffi-napi';
 
 const user32 = new FFI.Library('user32', {
     'GetAsyncKeyState': [

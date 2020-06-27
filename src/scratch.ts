@@ -3,7 +3,14 @@ import {getMousePos} from "./mouse";
 import {keyPress, typeString} from "./keyboardInput";
 import {KEY_A} from "./keycodes";
 import {addKeyDownListener} from "./keyboardEvent";
+import {addActiveWindowChangeListener, removeActiveWindowChangeListener} from "./activeWindowEvent";
 
-addKeyDownListener(KEY_A, ()=>{
-    typeString("Hello, World!")
-});
+function handleWindowChange(r:any) {
+    console.log(r.title);
+}
+
+addActiveWindowChangeListener(handleWindowChange);
+
+setTimeout(()=>{
+    removeActiveWindowChangeListener(handleWindowChange);
+}, 1000);

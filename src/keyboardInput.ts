@@ -1,6 +1,6 @@
-import ffi from "ffi";
-import ref from "ref";
-import StructType from "ref-struct";
+import ffi from "ffi-napi";
+import ref from "ref-napi";
+import StructType from "ref-struct-napi";
 import {MOUSE_LEFT, MOUSE_MIDDLE, MOUSE_RIGHT, MOUSE_X1, MOUSE_X2} from "./keycodes";
 import {
     mouseLeftDown,
@@ -183,7 +183,7 @@ const charToKeyCode:Record<string, ()=>void> = {
     ">": ()=>{keyDown(K.KEY_LSHIFT);keyPress(K.KEY_PERIOD);keyUp(K.KEY_LSHIFT);},
     "/": ()=>keyPress(K.KEY_SLASH),
     "?": ()=>{keyDown(K.KEY_LSHIFT);keyPress(K.KEY_SLASH);keyUp(K.KEY_LSHIFT);},
-
+    " ": ()=>keyPress(K.KEY_SPACE),
 };
 
 export function typeString(str: string) {

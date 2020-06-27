@@ -1,6 +1,6 @@
-import ffi from "ffi";
-import ref from "ref";
-import StructType from "ref-struct";
+import ffi from "ffi-napi";
+import ref from "ref-napi";
+import StructType from "ref-struct-napi";
 const arch = require("os").arch();
 
 import {getScreenSize} from "./screen";

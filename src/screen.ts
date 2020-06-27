@@ -1,6 +1,6 @@
 import robot from 'robotjs';
 import {RGB} from "./RGB";
-import ffi from "ffi";
+import ffi from "ffi-napi";
 
 const user32 = new ffi.Library("user32", {
     GetSystemMetrics: ["int", ["int"]],
