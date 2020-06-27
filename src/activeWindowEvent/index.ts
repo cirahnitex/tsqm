@@ -1,11 +1,16 @@
 import {ChildProcess, fork} from "child_process";
 import {Result} from "active-win";
+
+export type ActiveWindowInfo = Result;
+
 let worker: ChildProcess | null = null;
-type Listener = (r:Result)=>any;
+
+
+type Listener = (r:ActiveWindowInfo)=>any;
 
 let listeners:Listener[] = [];
 
-function handleWorkerMessage(r:Result) {
+function handleWorkerMessage(r:ActiveWindowInfo) {
     for(const listener of listeners) {
         listener(r);
     }
