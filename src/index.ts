@@ -5,3 +5,4 @@ export * from "./keycodes";
 export * from "./mouse";
 export * from "./RGB";
 export * from "./screen";
+export * from "./activeWindowEvent";
